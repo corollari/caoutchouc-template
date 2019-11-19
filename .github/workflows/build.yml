@@ -1,0 +1,37 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1.1.0
+      with:
+        version: 11.x
+    - name: Install dependencies
+      run: |
+        wget https://github.com/jgm/pandoc/releases/download/2.2.1/pandoc-2.2.1-1-amd64.deb && sudo dpkg -i pandoc-2.2.1-1-amd64.deb
+        sudo apt-get update -qq
+        sudo apt-get install texlive-full
+    - name: Install caou
+      run: npm install -g caou
+    - name: Build document
+      run: |
+        caou paper.caou
+        caou paper.caou
+        mkdir -p built-doc
+        mv paper.pdf built-doc
+    - name: Upload built doc
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: paper.pdf
+        path: built-doc
+    - name: Deploy to GitHub Pages
+      uses: maxheld83/ghpages@v0.2.1
+      if: success() && github.event == 'push' && github.ref == "master"
+      env: 
+        BUILD_DIR: "built-doc"
