@@ -25,6 +25,8 @@ jobs:
         caou paper.caou
         mkdir -p built-doc
         mv paper.pdf built-doc
+        echo ${{ github.ref }}
+        echo ${{ github.event }}
     - name: Upload built doc
       uses: actions/upload-artifact@v1.0.0
       with:
