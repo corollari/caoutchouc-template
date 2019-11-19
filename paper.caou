@@ -13,13 +13,9 @@ Caoutchouc is also the name that the indigenous people of South America used for
 
 \newpage
 
-# I. A brief introduction to Caoutchouc
+# A brief introduction to Caoutchouc
 ## Math
 Math can be typed the way you'd in a calculator €1+2*sqrt(2)-pi+alpha/(3.2-1)€
-
-## Images
-Adding images is easy too
-![This is the figure's caption](figure.png)
 
 ## Lists
 ### Unordered
@@ -34,10 +30,6 @@ Adding images is easy too
 1. Or ordered,
 2. like 
 3. this
-
-### TO-DO Lists
-- [ ] or even like this
-- [x] checked
 
 ## Code
 ~~~~~~~
