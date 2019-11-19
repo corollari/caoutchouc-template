@@ -31,7 +31,8 @@ jobs:
         name: paper.pdf
         path: built-doc
     - name: Deploy to GitHub Pages
-      uses: maxheld83/ghpages@v0.2.1
+      uses: peaceiris/actions-gh-pages@v2.5.0
       if: success() && github.event == 'push' && github.ref == 'master'
       env: 
-        BUILD_DIR: 'built-doc'
+        PUBLISH_DIR: ./built-doc
+        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
