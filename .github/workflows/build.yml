@@ -36,4 +36,4 @@ jobs:
       env: 
         PUBLISH_DIR: ./built-doc
         PUBLISH_BRANCH: gh-pages
-        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
